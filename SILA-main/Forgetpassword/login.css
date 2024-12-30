@@ -1,0 +1,116 @@
+/* General Body Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #00172D, #082E54);
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Form Styling */
+form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+/* Input Fields */
+input[type=text], input[type=password] {
+  width: 90%;
+  padding: 14px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  outline: none;
+  font-size: 1em;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  border: 2px solid #61dafb;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button[type=submit], .cancelbtn {
+  background: linear-gradient(135deg, #1E90FF, #4682B4); /* Shared gradient for both buttons */
+}
+
+button[type=submit]:hover, .cancelbtn:hover {
+  background: linear-gradient(135deg, #4682B4, #1E90FF);
+}
+
+/* Avatar Container */
+.imgcontainer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+img.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Password Span */
+span.psw {
+  display: block;
+  text-align: right;
+  color: #b0c7ff;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+span.psw a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+span.psw a:hover {
+  text-decoration: underline;
+}
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 600px) {
+  form {
+    width: 90%;
+    padding: 15px;
+  }
+
+  button, .cancelbtn {
+    font-size: 0.9em;
+  }
+
+  input[type=text], input[type=password] {
+    padding: 12px;
+    font-size: 0.9em;
+  }
+}
