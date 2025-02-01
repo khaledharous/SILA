@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notification </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            background-color: #001B4A;
+            color: white;
+            padding: 10px 0;
+            border-radius: 5px;
+        }
+
+        .notification {
+            display: flex;
+            align-items: center;
+            background: white;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .notification.expanded {
+            background-color: #F4F4F4;
+            transform: scale(1.02);
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .icon.heart {
+            background-color: #ff5e5e;
+        }
+
+        .icon.share {
+            background-color: #29323C;
+        }
+
+        .icon.comment {
+            background-color: #cccccc;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .content p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .content span {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .full-content {
+            display: none;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+            padding-top: 5px;
+            border-top: 1px solid #ccc;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: #29323C;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .notifications-container {
+            display: block;
+        }
+
+        .notification-details {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>الإشعارات</h1>
+        </header>
+        <main>
+            <section class="notifications-container" id="notifications-container">
+                <h2 id="today-header"></h2>
+                <div id="notifications-list"></div>
+            </section>
+
+            <section class="notification-details" id="notification-details">
+                <div class="back-button" onclick="goBack()">Return to notifications</div>
+                <div id="full-notification"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- صوت الإشعار -->
+    <audio id="notification-sound">
+        <source src="https://www.myinstants.com/media/sounds/bell-notification.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let updateInterval;
+        let lastNotificationCount = 0;
+
+        function playNotificationSound() {
+            document.getElementById("notification-sound").play();
+        }
+
+        function displayNotifications() {
+            const notificationsContainer = document.getElementById('notifications-list');
+            const notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+
+            notifications.sort((a, b) => new Date(b.time) - new Date(a.time));
+
+            if (notifications.length > lastNotificationCount) {
+                playNotificationSound();
+            }
+            lastNotificationCount = notifications.length;
+
+            notificationsContainer.innerHTML = '';
+
+            notifications.forEach(notification => {
+                const notificationElement = document.createElement('div');
+                notificationElement.classList.add('notification');
+
+                let iconClass = 'comment';
+                if (notification.type === 'like') iconClass = 'heart';
+                if (notification.type === 'share') iconClass = 'share';
+
+                notificationElement.innerHTML = `
+                    <div class="icon ${iconClass}"></div>
+                    <div class="content">
+                        <p><strong>${notification.course}</strong> - <strong>${notification.instructor}</strong></p>
+                        <span class="dynamic-time">${notification.time}</span>
+                        <div class="full-content">${notification.content}</div>
+                    </div>
+                `;
+
+                notificationElement.addEventListener('click', function() {
+                    showNotificationDetails(notification);
+                });
+
+                notificationsContainer.appendChild(notificationElement);
+            });
+        }
+
+        function showNotificationDetails(notification) {
+            document.getElementById('notifications-container').style.display = 'none';
+            document.getElementById('full-notification').innerHTML = `
+                <h3>${notification.subject}</h3>
+                <p><strong>الدورة:</strong> ${notification.course}</p>
+                <p><strong>المدرب:</strong> ${notification.instructor}</p>
+                <p><strong>المحتوى:</strong> ${notification.content}</p>
+                <p><strong>الوقت:</strong> ${notification.time}</p>
+            `;
+            document.getElementById('notification-details').style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('notifications-container').style.display = 'block';
+            document.getElementById('notification-details').style.display = 'none';
+        }
+
+        const today = new Date();
+        document.getElementById('today-header').textContent = `اليوم - ${today.toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`;
+
+        function startAutoUpdate() {
+            updateInterval = setInterval(displayNotifications, 10000);
+        }
+
+        displayNotifications();
+        startAutoUpdate();
+    </script>
+
+</body>
+</html>
+
