@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-y: auto; 
+            overflow-x: hidden; 
+            background: linear-gradient(135deg, #457B9D, #A8DADC, #1D3557);
+            background-size: 200% 200%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .form-container {
+            width: 90%; 
+            max-width: 380px; 
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 1.8rem;
+            color: #1D3557;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #457B9D;
+            box-shadow: 0 0 5px rgba(69, 123, 157, 0.6);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1D3557;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #457B9D;
+        }
+        .account-option {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .account-option a {
+            color: #1D3557;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .account-option a:hover {
+            text-decoration: underline;
+        }
+        /* التصميم المتجاوب */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            label {
+                font-size: 0.9rem;
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                font-size: 0.95rem;
+                padding: 8px;
+            }
+            button {
+                padding: 10px;
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.4rem;
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                font-size: 0.85rem;
+                padding: 6px;
+            }
+            button {
+                padding: 8px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Sign Up</h1>
+        <form>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your Username" required>
+            <label for="studentid">Student ID</label>
+            <input type="text" id="studentid" name="studentid" placeholder="Enter your Student ID" required>
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Enter your Address" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="Enter your City" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="account-option">
+            Already have an account? <a class="small" href="{{ url_for('login') }}">Sign In</a>
+        </div>
+    </div>
+</body>
+</html>
