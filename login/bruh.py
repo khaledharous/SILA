@@ -1,1 +1,0 @@
-print("wsp ma nigga")
