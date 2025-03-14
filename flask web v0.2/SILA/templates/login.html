@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #457B9D, #A8DADC, #1D3557);
+            background-size: 200% 200%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .form-container {
+            width: 90%;
+            max-width: 380px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container h1 {
+            font-size: 1.8rem;
+            color: #1D3557;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #457B9D;
+            box-shadow: 0 0 5px rgba(69, 123, 157, 0.6);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1D3557;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #457B9D;
+        }
+
+        .account-option {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .account-option a {
+            color: #1D3557;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .account-option a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Login</h1>
+        <form action="action_page.php" method="post">
+            <label for="uname">Username</label>
+            <input type="text" placeholder="Enter your Username" name="uname" id="uname" required>
+
+            <label for="psw">Password</label>
+            <input type="password" placeholder="Enter your Password" name="psw" id="psw" required>
+
+            <button type="submit">Login</button>
+            <label style="display: flex; align-items: center; margin-top: 10px;">
+                <input type="checkbox" checked="checked" name="remember" style="margin-right: 8px;"> Remember me
+            </label>
+        </form>
+        <div class="account-option">
+            <a href="{{ url_for('forgot_password') }}">Forgot password?</a>
+        </div>
+    </div>
+</body>
+
+</html>
