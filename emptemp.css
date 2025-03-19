@@ -1,0 +1,48 @@
+body{
+    background-color: #f0f8ff;
+}
+/* Basic table styling */
+table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Remove space between cells */
+    margin: 20px 0; /* Add some margin */
+    font-family: Arial, sans-serif; /* Font style */
+}
+
+/* Table header and cell styling */
+th, td {
+    padding: 12px; /* Add padding */
+    text-align: left; /* Align text to the left */
+    border-right: 1px solid #ddd; /* Add a vertical line between columns */
+}
+
+/* Remove the right border from the last column */
+th:last-child, td:last-child {
+    border-right: none; /* No border on the last column */
+}
+
+/* Table header styling */
+th {
+    background-color: #001B4A; /* Dark blue background */
+    color: white; /* White text */
+}
+
+/* Table row styling */
+tr {
+    border-bottom: 1px solid #ddd; /* Add a border between rows */
+}
+
+/* Alternate row color for better readability */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background */
+}
+
+/* Hover effect on rows */
+tr:hover {
+    background-color: #ddd; /* Darker gray on hover */
+}
+
+/* Style for the header of the table with class "current-time" */
+.current-time{
+    background-color: #d00000;
+}
