@@ -99,37 +99,3 @@ caption {
     font-weight: 600; /* Semi-bold text */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .schedule-table th,
-    .schedule-table td {
-        padding: 10px; /* Smaller padding for smaller screens */
-        font-size: 14px; /* Smaller font size */
-    }
-
-    .current-time-table th {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    caption {
-        font-size: 1.25rem; /* Smaller caption for smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .schedule-table th,
-    .schedule-table td {
-        padding: 8px; /* Even smaller padding for mobile */
-        font-size: 12px; /* Smaller font size */
-    }
-
-    .current-time-table th {
-        padding: 8px;
-        font-size: 12px;
-    }
-
-    caption {
-        font-size: 1rem; /* Smaller caption for mobile */
-    }
-}
