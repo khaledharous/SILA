@@ -1,48 +1,135 @@
-body{
-    background-color: #f0f8ff;
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-/* Basic table styling */
-table {
-    width: 100%; /* Full width */
+
+/* Body Styling */
+body {
+    background-color: #f8f9fa; /* Light gray background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font stack */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: #333; /* Default text color */
+}
+
+/* Container for Tables */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Table Caption Styling */
+caption {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #001B4A; /* Dark blue for headings */
+    text-align: center;
+}
+
+/* Main Schedule Table Styling */
+.schedule-table {
+    width: 100%;
     border-collapse: collapse; /* Remove space between cells */
-    margin: 20px 0; /* Add some margin */
-    font-family: Arial, sans-serif; /* Font style */
+    margin-bottom: 2rem; /* Space between tables */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: white; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensure rounded corners are visible */
 }
 
-/* Table header and cell styling */
-th, td {
-    padding: 12px; /* Add padding */
-    text-align: left; /* Align text to the left */
-    border-right: 1px solid #ddd; /* Add a vertical line between columns */
+/* Table Header and Cell Styling */
+.schedule-table th,
+.schedule-table td {
+    padding: 12px;
+    text-align: center; /* Center-align text */
+    border: 1px solid #e0e0e0; /* Light gray border */
 }
 
-/* Remove the right border from the last column */
-th:last-child, td:last-child {
-    border-right: none; /* No border on the last column */
-}
-
-/* Table header styling */
-th {
+/* Table Header Styling */
+.schedule-table th {
     background-color: #001B4A; /* Dark blue background */
     color: white; /* White text */
+    font-weight: 600; /* Semi-bold text */
 }
 
-/* Table row styling */
-tr {
-    border-bottom: 1px solid #ddd; /* Add a border between rows */
+/* Row Header Styling */
+.schedule-table th[scope="row"] {
+    background-color: #f8f9fa; /* Light gray for row headers */
+    color: #333; /* Dark text */
+    font-weight: 600; /* Semi-bold text */
 }
 
-/* Alternate row color for better readability */
-tr:nth-child(even) {
-    background-color: #f2f2f2; /* Light gray background */
+/* Alternate Row Color for Better Readability */
+.schedule-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray background */
 }
 
-/* Hover effect on rows */
-tr:hover {
-    background-color: #ddd; /* Darker gray on hover */
+/* Hover Effect on Rows */
+.schedule-table tbody tr:hover {
+    background-color: #f1f1f1; /* Slightly darker gray on hover */
 }
 
-/* Style for the header of the table with class "current-time" */
-.current-time{
-    background-color: #d00000;
+/* Current Time Table Styling */
+.current-time-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensure rounded corners are visible */
+    margin-bottom: 2rem; /* Space below the table */
+}
+
+.current-time-table th {
+    padding: 12px;
+    text-align: center; /* Center-align text */
+    border: 1px solid #e0e0e0; /* Light gray border */
+}
+
+.current-time-table th {
+    background-color: #d00000; /* Red background */
+    color: white; /* White text */
+    font-weight: 600; /* Semi-bold text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .schedule-table th,
+    .schedule-table td {
+        padding: 10px; /* Smaller padding for smaller screens */
+        font-size: 14px; /* Smaller font size */
+    }
+
+    .current-time-table th {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    caption {
+        font-size: 1.25rem; /* Smaller caption for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-table th,
+    .schedule-table td {
+        padding: 8px; /* Even smaller padding for mobile */
+        font-size: 12px; /* Smaller font size */
+    }
+
+    .current-time-table th {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    caption {
+        font-size: 1rem; /* Smaller caption for mobile */
+    }
 }

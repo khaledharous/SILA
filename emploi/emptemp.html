@@ -3,90 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>emploi du temp</title>
+    <title>Weekly Schedule</title>
     <link rel="stylesheet" href="emptemp.css"> <!-- Link to external CSS file -->
 </head>
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>Days</th>
-                <th>08:00-09:30</th>
-                <th>09:30-11:00</th>
-                <th>11:00-12:30</th>
-                <th>12:30-14:00</th>
-                <th>14:00-15:30</th>
-                <th>15:30-17:00</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Saturday</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Sunday</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Monday</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Tuesday</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Wednesday</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Thursday</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container">
+        <!-- Main Schedule Table -->
+        <table class="schedule-table">
+            <caption>Weekly Schedule</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Days</th>
+                    <th scope="col">08:00 - 09:30</th>
+                    <th scope="col">09:30 - 11:00</th>
+                    <th scope="col">11:00 - 12:30</th>
+                    <th scope="col">12:30 - 14:00</th>
+                    <th scope="col">14:00 - 15:30</th>
+                    <th scope="col">15:30 - 17:00</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Saturday</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Sunday</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Monday</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Tuesday</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Wednesday</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Thursday</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <!-- Second table with class "current-time" -->
-    <table >
-        <thead>
-            <tr>
-                <th class="current-time">⏰ Now:</th>
-                <th class="current-time"></th>
-                <th class="current-time"></th>
-                <th class="current-time"></th>
-            </tr>
-        </thead>
-    </table>
+        <!-- Current Time Table -->
+        <table class="current-time-table">
+            <caption>Current Time</caption>
+            <thead>
+                <tr>
+                    <th scope="col">⏰ Now:</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 </body>
 </html>
