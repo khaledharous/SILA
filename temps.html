@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekdays Table</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #fff;
+            padding: 20px;
+        }
+        .title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #1D3557;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .table-container {
+            width: 100%;
+            max-width: 700px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid #1D3557;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            border: 2px solid #1D3557;
+        }
+        th, td {
+            border: 1px solid #457B9D;
+            padding: 12px;
+            font-size: 1rem;
+            color: #1D3557;
+        }
+        th {
+            background: #f1f5f9;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        /* تمييز اليوم الحالي في العمود الأول */
+        .highlight-day::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: black;
+            margin-top: 3px;
+        }
+        /* تمييز الفترة الزمنية الحالية في الصف الأول */
+        .highlight-time::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: black;
+            margin-top: 3px;
+        }
+        /* تمييز الخلية المشتركة بين اليوم والتوقيت */
+        .highlight-cell {
+            background-color: #D0E8FF !important;
+        }
+        @media (max-width: 768px) {
+            .title {
+                font-size: 1.5rem;
+            }
+            th, td {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.3rem;
+            }
+            th, td {
+                font-size: 0.85rem;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Time Table</div>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th></th>
+                <th>08:00 - 09:30</th>
+                <th>09:30 - 11:00</th>
+                <th>11:00 - 12:30</th>
+                <th>12:30 - 14:00</th>
+                <th>14:00 - 15:30</th>
+                <th>15:30 - 17:00</th>
+            </tr>
+            <tr>
+                <th>Satuday</th>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <th>Sunday</th>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <th>Monday</th>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <th>Tuesday</th>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <th>Wednesday</th>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <th>Thursday</th>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Saturday", "Sunday"];
+            const timeSlots = ["08:00 - 09:30", "09:30 - 11:00", "11:00 - 12:30", "12:30 - 14:00", "14:00 - 15:30", "15:30 - 17:00"];
+            
+            let now = new Date();
+            let currentDayIndex = now.getDay() - 1;  
+            let currentDay = days[currentDayIndex];
+            let currentTime = now.getHours() + ":" + (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
+            
+            let selectedTimeSlot = null;
+            for (let slot of timeSlots) {
+                let [start, end] = slot.split(" - ");
+                if (currentTime >= start && currentTime <= end) {
+                    selectedTimeSlot = slot;
+                    break;
+                }
+            }
+
+            // تمييز اليوم الحالي بخط أسفل النص
+            document.querySelectorAll("th").forEach(th => {
+                if (th.textContent.trim() === currentDay) {
+                    th.classList.add("highlight-day");
+                }
+            });
+
+            // تمييز التوقيت الحالي بخط أسفل النص
+            document.querySelectorAll("th").forEach(th => {
+                if (th.textContent.trim() === selectedTimeSlot) {
+                    th.classList.add("highlight-time");
+                }
+            });
+
+            });
+    </script>
+</body>
+</html>
+
+
