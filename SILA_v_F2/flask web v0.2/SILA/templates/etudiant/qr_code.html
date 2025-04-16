@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your QR Code</title>
+  <style>
+    body {
+      background-color: #f0f8ff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h2 {
+      color: #1D3557;
+      margin-bottom: 20px;
+    }
+
+    .qr-container {
+      border: 2px dashed #457B9D;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .qr-container img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Your QR Code</h2>
+
+  <div class="qr-container">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&size=200x200" alt="QR Code">
+  </div>
+
+</body>
+</html>

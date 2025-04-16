@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <footer
+        style="background: linear-gradient(135deg, #1D3557, #457B9D); color: #fff; padding: 20px 0; margin-top: 20px;">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-md-4">
+                    <h5 style="font-weight: bold; color: #A8DADC;">About Us</h5>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        We are dedicated to providing students with the best tools to manage their academic profiles and
+                        stay
+                        connected with their institution.
+                    </p>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="col-md-4">
+                    <h5 style="font-weight: bold; color: #A8DADC;">Quick Links</h5>
+                    <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                        <li><a href="{{ url_for('notes') }}" style="color: #fff; text-decoration: none;">Notes</a></li>
+                        <li><a href="{{ url_for('annanceET') }}"
+                                style="color: #fff; text-decoration: none;">Announcements</a></li>
+                        <li><a href="{{ url_for('etablisement') }}"
+                                style="color: #fff; text-decoration: none;">Etablisement</a>
+                        </li>
+                        <li><a href="{{ url_for('profile') }}" style="color: #fff; text-decoration: none;">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-md-4">
+                    <h5 style="font-weight: bold; color: #A8DADC;">Contact Us</h5>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        <i class="fas fa-envelope" style="margin-right: 8px;"></i> support@example.com<br>
+                        <i class="fas fa-phone" style="margin-right: 8px;"></i> +123 456 7890<br>
+                        <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> 123 Academic St, City, Country
+                    </p>
+                </div>
+            </div>
+
+            <hr style="border-color: rgba(255, 255, 255, 0.2); margin: 20px 0;">
+
+            <div class="text-center" style="font-size: 0.85rem;">
+                © 2025 Your Institution. All rights reserved.
+            </div>
+        </div>
+
+
+    </footer>
+</body>
+
+</html>
