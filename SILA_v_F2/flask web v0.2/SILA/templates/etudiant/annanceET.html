@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Announcements</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Font Awesome for icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f0f4f8;
+      color: #1d3557;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .announcements-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .announcement {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-left: 6px solid #457B9D;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .announcement:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .announcement-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .announcement-content {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .announcement-footer {
+      font-size: 0.9rem;
+      color: #888;
+      text-align: right;
+    }
+
+    .no-announcements {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #999;
+      margin-top: 50px;
+    }
+
+    .form-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-size: 1rem;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #f9f9f9;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #457B9D;
+      outline: none;
+      box-shadow: 0 0 8px rgba(69, 123, 157, 0.5);
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #ffffff;
+      background: #457B9D;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background: #1d3557;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Include your navbar here -->
+
+
+  <div class="form-container">
+    <h1>Announcements</h1>
+    <div class="announcements-wrapper" id="announcements">
+      <!-- No announcements currently -->
+      <div class="no-announcements">There are no announcements currently</div>
+
+      <!-- Example Announcement -->
+      <div class="announcement">
+        <div class="announcement-title">Example Announcement Title</div>
+        <div class="announcement-content">This is an example announcement content. It can be updated dynamically
+          with real data.</div>
+        <div class="announcement-footer">Posted on: 2025-04-15</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

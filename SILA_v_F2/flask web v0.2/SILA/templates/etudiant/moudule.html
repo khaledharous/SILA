@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Subjects</title>
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      background-color: #F8F9FA;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #1D3557;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #E5ECF4;
+      margin: 0.5rem 0;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>My Subjects</h1>
+    <ul id="subject-list">
+      <!-- Subjects will be loaded here -->
+    </ul>
+  </div>
+
+  <script>
+    const studentSubjects = [
+      "Subject 1",
+      "Subject 2",
+      "Subject 3",
+      "Subject 4",
+      "Subject 5"
+    ];
+
+    const subjectList = document.getElementById("subject-list");
+
+    studentSubjects.forEach(subject => {
+      const li = document.createElement("li");
+      li.textContent = subject;
+      subjectList.appendChild(li);
+    });
+  </script>
+
+</body>
+
+</html>

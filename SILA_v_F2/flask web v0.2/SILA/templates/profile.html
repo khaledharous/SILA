@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='assetsP/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assetsP/fonts/material-icons.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assetsP/css/Profile-with-data-and-skills.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assetsP/css/styles.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+</head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Navbar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+  <nav class="navbar">
+    <div class="logo"></div>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('notes') }}" class="active">Notes</a></li>
+      <li><a href="{{ url_for('annanceET') }}">Annance</a></li>
+      <li><a href="{{ url_for('annanceEN') }}">Annance EN</a></li>
+      <li><a href="{{ url_for('etablisement') }}">Etablisement</a></li>
+      <li><a href="javascript:void(0)">User</a></li>
+      <li><a href="{{ url_for('profile') }}">Profile</a></li>
+    </ul>
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </nav>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #1D3557, #457B9D);
+      padding: 1rem 2rem;
+      color: #fff;
+      position: static;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 0;
+      /* Ensure no margin around the navbar */
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #A8DADC;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: #A8DADC;
+      color: #1D3557;
+    }
+
+    .nav-links a.active {
+      background-color: #A8DADC;
+      color: #1D3557;
+      font-weight: bold;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+      height: 3px;
+      width: 25px;
+      background-color: #fff;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 75px;
+        right: -100%;
+        background-color: #1D3557;
+        width: 20%;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        transition: right 0.3s ease;
+        padding: 1rem 0
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+
+
+  <div class="container">
+    <div class="main-body">
+      <!-- Breadcrumb -->
+
+      <!-- /Breadcrumb -->
+      <div class="row gutters-sm">
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="User Avatar" class="rounded-circle"
+                  width="150">
+                <div class="mt-3">
+                  <h1>{{ user.username }}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-3">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <h6 class="mb-0">Academic Year</h6>
+                <span class="text-secondary">{{ user.academic_year }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <h6 class="mb-0">Section</h6>
+                <span class="text-secondary"> {{ user.section }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <h6 class="mb-0">Date of Birth</h6>
+                <span class="text-secondary">{{ user.date_of_birth }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <h6 class="mb-0">Group</h6>
+                <span class="text-secondary">{{ user.group}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Full Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary d-flex align-items-center">{{ user.username }}
+                </div>
+              </div>
+              <hr>
+              <div class="row align-items-center">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary d-flex align-items-center"> {{ user.email }}
+                </div>
+              </div>
+              <hr>
+              <div class="row align-items-center">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">City</h6>
+                </div>
+                <div class="col-sm-9 text-secondary d-flex align-items-center"> {{ user.city }}
+                </div>
+              </div>
+              <hr>
+              <div class="row align-items-center">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Address</h6>
+                </div>
+                <div class="col-sm-9 text-secondary d-flex align-items-center">{{ user.address }}
+                </div>
+              </div>
+              <hr>
+              <div class="row align-items-center">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Matricule</h6>
+                </div>
+                <div class="col-sm-9 text-secondary d-flex align-items-center">{{ user.student_id }}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-12">
+                  <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row gutters-sm">
+            <div class="col-sm-6 mb-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h6 class="d-flex align-items-center mb-3"><i
+                      class="material-icons text-info mr-2">assignment</i>student card
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 mb-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h6 class="d-flex align-items-center mb-3"><i
+                      class="material-icons text-info mr-2">assignment</i>Hébargement</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+  <footer
+    style="background: linear-gradient(135deg, #1D3557, #457B9D); color: #fff; padding: 20px 0; margin-top: 20px;">
+    <div class="container">
+      <div class="row">
+        <!-- About Section -->
+        <div class="col-md-4">
+          <h5 style="font-weight: bold; color: #A8DADC;">About Us</h5>
+          <p style="font-size: 0.9rem; line-height: 1.6;">
+            We are dedicated to providing students with the best tools to manage their academic profiles and stay
+            connected with their institution.
+          </p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="col-md-4">
+          <h5 style="font-weight: bold; color: #A8DADC;">Quick Links</h5>
+          <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+            <li><a href="{{ url_for('notes') }}" style="color: #fff; text-decoration: none;">Notes</a></li>
+            <li><a href="{{ url_for('annanceET') }}" style="color: #fff; text-decoration: none;">Announcements</a></li>
+            <li><a href="{{ url_for('etablisement') }}" style="color: #fff; text-decoration: none;">Etablisement</a>
+            </li>
+            <li><a href="{{ url_for('profile') }}" style="color: #fff; text-decoration: none;">Profile</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="col-md-4">
+          <h5 style="font-weight: bold; color: #A8DADC;">Contact Us</h5>
+          <p style="font-size: 0.9rem; line-height: 1.6;">
+            <i class="fas fa-envelope" style="margin-right: 8px;"></i> support@example.com<br>
+            <i class="fas fa-phone" style="margin-right: 8px;"></i> +123 456 7890<br>
+            <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> 123 Academic St, City, Country
+          </p>
+        </div>
+      </div>
+
+      <hr style="border-color: rgba(255, 255, 255, 0.2); margin: 20px 0;">
+
+      <div class="text-center" style="font-size: 0.85rem;">
+        © 2025 Your Institution. All rights reserved.
+      </div>
+    </div>
+
+
+  </footer>
+</body>
+
+
+</html>
