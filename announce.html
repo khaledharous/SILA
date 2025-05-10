@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Announcements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Noto Sans', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background: #f0f4f8;
+      direction: rtl;
+      color: #1d3557;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    .announcements-wrapper {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .announcement {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px 25px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      border-right: 6px solid #457B9D;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .announcement:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .announcement-title {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .announcement-content {
+      font-size: 1em;
+      margin-bottom: 12px;
+      color: #333;
+    }
+
+    .announcement-footer {
+      text-align: left;
+      font-size: 0.85em;
+      color: #888;
+    }
+
+    .no-announcements {
+      text-align: center;
+      font-size: 1.1em;
+      color: #999;
+      margin-top: 60px;
+    }
+
+    /* Shadow box for content */
+    .announcement-box {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      transition: transform 0.3s ease;
+      width: 100%; /* Full width */
+      height: 400px; /* Fixed height to make it closer to square */
+      margin-top: 20px;
+    }
+
+    .announcement-box:hover {
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Announcements</h1>
+
+  <div class="announcements-wrapper" id="announcements">
+    <!-- No announcements currently -->
+    <div class="no-announcements">There are no announcements currently</div>
+
+    <!-- Empty box for future announcements -->
+    <div class="announcement-box">
+      <!-- The box is empty for now -->
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
